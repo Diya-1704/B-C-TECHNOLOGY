@@ -26,7 +26,7 @@ export default function Home() {
     const fetchProducts = async () => {
       try {
         const res = await axios.get("http://localhost:5000/api/products");
-        setFeaturedProducts(res.data.data || []);
+        setFeaturedProducts(res.data.data || []); console.log("Home Data Loaded");
       } catch (error) { console.error("Error fetching products:", error); }
     };
     fetchProducts();
@@ -234,3 +234,4 @@ export default function Home() {
     </div>
   );
 }
+
