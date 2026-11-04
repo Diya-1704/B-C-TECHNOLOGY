@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors based on the real logo */
+  --color-navy: #0A1F44;       /* Deep Navy from logo */
+  --color-navy-deep: #06132C;  /* Darker navy for backgrounds */
+  --color-navy-soft: #1A3366;
+  --color-silver: #B3B8C2;     /* Metallic Silver from logo */
+  --color-silver-light: #E2E4E8;
+  --color-brand: #F28C28;      /* Keeping orange for CTA buttons */
+  --color-brand-dark: #D97706;
+  --color-mist: #F8F9FA;
+
+  /* Typography */
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Motion */
+  --ease-industrial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-navy font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-mist); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-navy);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-silver); }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+  .text-balance { text-wrap: balance; }
+}
